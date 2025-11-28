@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Bảng chấm công</h1>
+
+<!-- Bộ lọc đẹp như cũ, nhưng giờ submit GET để giữ trạng thái khi F5/Back -->
+<div class="filter-bar">
+  <form method="GET" id="filterForm" style="display: contents;">
+    <input type="date" 
+           name="date" 
+           id="filterDate" 
+           value="{{ request.args.get('date', '') }}"
+           onchange="this.form.submit()"
+           placeholder="Lọc theo ngày">
+    
+    <input type="text" 
+           name="name" 
+           id="searchName" 
+           value="{{ request.args.get('name', '') }}"
+           placeholder="Tìm tên nhân viên..."
+           oninput="delaySubmit()">
+  </form>
+
+  <!-- Nút xóa lọc -->
+  {% if request.args.get('date') or request.args.get('name') %}
+    <a href="{{ url_for('attendance') }}" style="margin-left:15px; color:#e74c3c; font-size:14px;">
+      ✕ Xóa bộ lọc
+    </a>
+  {% endif %}
+</div>
+
+<table id="attendanceTable">
+  <thead>
+    <tr>
+      <th>Thời gian</th>
+      <th>Tên nhân viên</th>
+      <th>Trạng thái</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if logs %}
+      {% for log in logs %}
+      <tr>
+        <td>{{ log.timestamp }}</td>
+        <td>{{ log.name or 'Unknown' }}</td>
+        <td class="{% if log.authorized %}success{% else %}danger{% endif %}">
+          {% if log.authorized %}Vào cửa{% else %}Bị từ chối{% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    {% else %}
+      <tr>
+        <td colspan="3" class="no-data">
+          {% if request.args %}
+            Không tìm thấy dữ liệu phù hợp
+          {% else %}
+            Không có dữ liệu
+          {% endif %}
+        </td>
+      </tr>
+    {% endif %}
+  </tbody>
+</table>
+
+<!-- JavaScript mượt hơn: tìm tên có delay nhẹ để không lag khi gõ nhanh -->
+<script>
+  let timeout;
+  function delaySubmit() {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      document.getElementById('filterForm').submit();
+    }, 400); // 400ms sau khi ngừng gõ mới submit
+  }
+
+  // Nếu có tham số trong URL thì tự động submit lần đầu (trường hợp Back/F5)
+  window.addEventListener('load', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('date') || urlParams.has('name')) {
+      // Không cần làm gì thêm vì Flask đã lọc server-side rồi
+    }
+  });
+</script>
+
+{% endblock %}

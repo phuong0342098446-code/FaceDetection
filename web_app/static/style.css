@@ -1,0 +1,111 @@
+body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; }
+.container { display: flex; min-height: 100vh; }
+.sidebar {
+  width: 220px; background: #2c3e50; color: white; padding: 20px;
+}
+.sidebar a {
+  display: block; color: white; padding: 10px; text-decoration: none; margin: 5px 0;
+  border-radius: 5px;
+}
+.sidebar a:hover { background: #34495e; }
+.content { flex: 1; padding: 20px; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+th { background: #f0f0f0; }
+input, button, select { margin: 5px 0; padding: 8px; width: 100%; }
+button { background: #3498db; color: white; border: none; cursor: pointer; }
+button:hover { background: #2980b9; }
+.alert { background: #f39c12; color: white; padding: 10px; margin-bottom: 10px; border-radius: 5px; }
+.success { background: #d5efdb; color: #27ae60; }
+.danger { background: #fadbd8; color: #e74c3c; }
+/* ================== CHI TIẾT NHÂN VIÊN - ĐẸP & GỌN ================== */
+.employee-detail-container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.detail-form {
+  flex: 1;
+  min-width: 320px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.detail-photo {
+  flex: 0 0 240px;
+  text-align: center;
+}
+
+.photo-frame {
+  width: 220px;
+  height: 280px;
+  border: 4px solid #3498db;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  background: #f0f0f0;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-caption {
+  margin-top: 12px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.info-table td {
+  padding: 8px 0;
+  vertical-align: top;
+}
+
+.info-table td:first-child {
+  width: 120px;
+  padding-right: 15px;
+  color: #555;
+  font-weight: 500;
+}
+
+.btn-primary {
+  background: #27ae60;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background: #219653;
+}
+
+.btn-capture {
+  display: inline-block;
+  background: #3498db;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.btn-capture:hover {
+  background: #2980b9;
+}

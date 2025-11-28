@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Thêm nhân viên mới</h1>
+<form method="POST" enctype="multipart/form-data">
+  <label>ID (chữ thường, không dấu):</label>
+  <input type="text" name="id" required /><br/>
+  <label>Họ tên:</label>
+  <input type="text" name="name" required /><br/>
+  <label>Chức vụ:</label>
+  <input type="text" name="position" /><br/>
+  <label>Điện thoại:</label>
+  <input type="text" name="phone" /><br/>
+  <label>Email:</label>
+  <input type="email" name="email" /><br/>
+  <label>Ảnh:</label>
+  <div style="display: flex; align-items: center;">
+    <input type="file" name="photo" accept="image/*" style="padding: 0 600 0 0" />
+    <button type="submit" name="action" value="add_and_capture" style="padding: 0 0 0 300">Chụp ảnh</button>
+  </div><br/>
+  <button type="submit" name="action" value="add">Thêm nhân viên</button>
+</form>
+{% endblock %}

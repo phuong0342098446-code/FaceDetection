@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Danh sách nhân viên</h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Tên</th>
+    <th>Chức vụ</th>
+    <th>Hành động</th>
+  </tr>
+  {% for emp in employees %}
+  <tr>
+    <td>{{ emp.id }}</td>
+    <td><a href="{{ url_for('employee_detail', emp_id=emp.id) }}">{{ emp.name }}</a></td>
+    <td>{{ emp.position }}</td>
+    <td>
+      <a href="{{ url_for('delete_employee', emp_id=emp.id) }}" 
+         onclick="return confirm('Xóa {{ emp.name }}?')">Xóa</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

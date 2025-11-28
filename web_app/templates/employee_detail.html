@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Chi tiết nhân viên</h1>
+<form method="POST" enctype="multipart/form-data">
+<div class="employee-detail-container">
+  <!-- Cột trái: Form thông tin -->
+  <div class="detail-form">
+   
+      <table class="info-table">
+        <tr>
+          <td><strong>ID:</strong></td>
+          <td>{{ emp.id }}</td>
+        </tr>
+        <tr>
+          <td><label for="name">Họ tên:</label></td>
+          <td><input type="text" name="name" value="{{ emp.name }}" required style="width:90%"></td>
+        </tr>
+        <tr>
+          <td><label for="position">Chức vụ:</label></td>
+          <td><input type="text" name="position" value="{{ emp.position }}" style="width:90%"></td>
+        </tr>
+        <tr>
+          <td><label for="phone">Điện thoại:</label></td>
+          <td><input type="text" name="phone" value="{{ emp.phone }}" style="width:90%"></td>
+        </tr>
+        <tr>
+          <td><label for="email">Email:</label></td>
+          <td><input type="email" name="email" value="{{ emp.email }}" style="width:90%"></td>
+        </tr>
+        <tr>
+          <td><label for="photo">Ảnh mới:</label></td>
+          <td>
+            <input type="file" name="photo" accept="image/*" style="width:100%">
+          </td>
+        </tr>
+        
+      </table>
+
+    </form>
+  </div>
+
+  <!-- Cột phải: Khung ảnh cố định -->
+  <div class="detail-photo">
+    <div class="photo-frame">
+      <img src="{{ url_for('get_photo', emp_id=emp.id) }}?t={{ now().timestamp() | int }}"
+           alt="{{ emp.name }}"
+           onerror="this.src='https://via.placeholder.com/220x280/eeeeee/999999?text=Chưa+có+ảnh';">
+    </div>
+    <div style="margin-top: 15px;">
+        <a href="{{ url_for('capture_photo', emp_id=emp.id) }}" class="btn-capture">
+          Chụp ảnh mới bằng camera
+        </a>
+    </div>
+  </div>
+  <button type="submit" class="btn-primary">
+              Cập nhật    
+  </button>
+
+</div>
+
+{% endblock %}
