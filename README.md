@@ -16,7 +16,7 @@
 
 
 ## Quick Start
-
+```bash
 # 1. Clone repo
 git clone https://github.com/phuong0342098446-code/facial_recognition_redesign.git
 cd facial_recognition_redesign
