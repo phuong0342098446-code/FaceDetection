@@ -1,0 +1,11 @@
+Flask==3.0.3
+face-recognition==1.3.0
+opencv-python==4.10.0.84
+picamera2==0.3.18
+gpiozero==2.0
+RPLCD==2.1.0
+imutils==0.5.4
+requests==2.32.3
+numpy==2.1.2
+dlib==19.24.6
+Pillow==10.4.0
