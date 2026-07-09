@@ -89,8 +89,8 @@ D --> G[Flask Dashboard]
 
 ```bash
 # 1. Clone repo
-git clone https://github.com/phuonght098/facial_recognition_redesign.git
-cd facial_recognition_redesign
+git clone https://github.com/phuonght098/FaceDetection.git
+cd FaceDetection
 
 # 2. Create virtual environment
 python3 -m venv face_rec
