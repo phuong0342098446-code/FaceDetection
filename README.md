@@ -11,7 +11,8 @@
 This project presents a Raspberry Pi-based smart attendance system using real-time face recognition technology. Instead of relying on RFID cards or fingerprint sensors, employee identities are verified automatically through facial recognition.
 
 The system integrates computer vision, a web-based employee management interface, motion detection, and automatic attendance logging into a single embedded platform.
-<img width="70" height="630" alt="image" src="https://github.com/user-attachments/assets/74a05120-f8bf-477d-b7c3-741f3452b165" />
+
+<img width="388" height="443" alt="image" src="https://github.com/user-attachments/assets/ca20472e-6ba5-4d08-9654-cfff9b60e71e" />
 
 # Features
 
@@ -60,22 +61,17 @@ Face-Attendance-System/
 
 # System Architecture
 
-Camera
-        │
-        ▼
-Face Detection
-        │
-        ▼
-Face Recognition
-        │
-        ▼
-Attendance Decision
-      ┌──┴─────┐
-      ▼        ▼
-CSV Log    LCD Display
-      │
-      ▼
-Flask Dashboard
+```mermaid
+graph TD
+
+A[Pi Camera] --> B[Face Detection]
+B --> C[Face Recognition]
+C --> D[Attendance Decision]
+
+D --> E[CSV Log]
+D --> F[LCD Display]
+D --> G[Flask Dashboard]
+```
 
 # Getting Started
 1. Clone project
@@ -122,7 +118,7 @@ python3 face_attendance.py
 - Attendance logging latency: < 2 s
 - Tested employees: 10+
 
-# System Response Time
+## System Response Time
 
 The overall response time of the proposed attendance system was evaluated from the moment a person enters the camera's field of view until the attendance record is successfully completed.
 
@@ -132,7 +128,7 @@ The overall response time of the proposed attendance system was evaluated from t
 |Attendance Processing	|2 – 3 s	|Display employee information on the LCD and save attendance records to the CSV log.|
 |Total Response Time	|5.5 – 8.5 s	|Complete process from motion detection to attendance logging.|
 
-# Discussion
+## Discussion
 
 The face recognition stage accounts for the majority of the execution time because the Raspberry Pi performs both face detection and encoding comparison on the CPU. Under normal indoor lighting conditions, the entire attendance process is completed within 5.5–8.5 seconds, which is sufficient for office and laboratory attendance applications.
 
