@@ -114,19 +114,20 @@ python3 face_attendance.py
 
 - Recognition accuracy: ~95–98%
 - Recognition distance: 0.5–2 m
-- Recognition time: < 1 s
-- Attendance logging latency: < 2 s
+- Recognition time: < 5 s
+- Attendance logging latency: < 3 s
 - Tested employees: 10+
 
 ## System Response Time
 
 The overall response time of the proposed attendance system was evaluated from the moment a person enters the camera's field of view until the attendance record is successfully completed.
 
-|Stage	|Typical| Time	Description|
-|Motion Detection (PIR)|	0.3 – 0.5 s	|PIR sensor detects human movement with debounce filtering to reduce false triggers.|
-|Face Recognition |	3 – 5 s|	Face detection, feature encoding, and identity matching using the face_recognition library.|
-|Attendance Processing	|2 – 3 s	|Display employee information on the LCD and save attendance records to the CSV log.|
-|Total Response Time	|5.5 – 8.5 s	|Complete process from motion detection to attendance logging.|
+| Stage | Typical Time | Description |
+| :--- | :---: | :--- |
+| Motion Detection (PIR) | 0.3 – 0.5 s | PIR sensor detects human movement with debounce filtering to reduce false triggers. |
+| Face Recognition | 3 – 5 s | Face detection, feature encoding, and identity matching using the `face_recognition` library. |
+| Attendance Processing | 2 – 3 s | Display employee information on the LCD and save attendance records to the CSV log. |
+| **Total Response Time** | **5.5 – 8.5 s** | Complete process from motion detection to attendance logging. |
 
 ## Discussion
 
