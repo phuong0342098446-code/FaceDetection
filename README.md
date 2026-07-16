@@ -56,7 +56,6 @@ Face-Attendance-System/
 - Raspberry Pi 4 (2GB or higher recommended)
 - Raspberry Pi Camera Module (v2 or v3)
 - PIR motion sensor HC-SR501 (optional)
-- 5V relay module
 - 16×2 I2C LCD (optional)
 
 # System Architecture
@@ -157,6 +156,6 @@ Author: Huynh Thanh Phuong
 
 Email: phuong0342098446@gmail.com
 
-LinkedIn:
+LinkedIn: https://www.linkedin.com/in/phuonght098/
 
 ⭐ If you find this project useful, please consider giving it a Star.
