@@ -111,11 +111,11 @@ python3 face_attendance.py
 
 # Results
 
-- Recognition accuracy: ~95–98%
+- Recognition accuracy: ~92%
 - Recognition distance: 0.5–2 m
 - Recognition time: < 5 s
 - Attendance logging latency: < 3 s
-- Tested employees: 10+
+- Tested employees: 40+
 
 ## System Response Time
 
